@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.storeWrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+
+.title {
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    background: rgb(188, 217, 242);
+}
+
+.itemBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+    margin-bottom: 10vh; /* This creates space between last item and the footer */
+    padding: 5%;
+}
+
+.cartBox {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(255, 190, 37);
+}

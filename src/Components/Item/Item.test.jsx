@@ -1,23 +1,39 @@
-import { render, screen } from "@testing-library/react";
-import { expect, test } from "vitest";
+import { beforeEach, expect, test } from "vitest";
+import { act, render, screen } from "@testing-library/react";
+import userEvent from '@testing-library/user-event';
 import Item from "./Item.jsx";
 
+let mockItem;
 
-test("Creating new item", () => {
+beforeEach(() => {
     // Arrange
-    const mockItem = { 
+    mockItem = { 
+        id: "1",
         name: "Apple", 
         imageSrc: "apple.jpg",
         imageAlt: "Apple Image"
     }
     render(<Item 
+        id={mockItem.id}
         name={mockItem.name} 
         imgSrc={mockItem.imageSrc} 
         imgAlt={mockItem.imageAlt}
     />);
-    // Act
+});
+
+test("Creating new item", () => {
     // Assert
     expect(screen.getByText("Apple"));
     const itemImage = screen.getByAltText(mockItem.imageAlt);
     expect(itemImage.getAttribute("src")).toStrictEqual(mockItem.imageSrc);
+});
+
+test("Check if Qty. Count can be increased", () => {
+    // Arrange
+    const addButton = screen.getByRole("button", {name:"+"});
+    // Act
+    act(() => {
+        
+    });
+    // Assert
 });

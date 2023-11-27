@@ -21,9 +21,10 @@
 
 .itemBox {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 20px;
+    grid-template-columns: auto;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     margin-bottom: 10vh; /* This creates space between last item and the footer */
     padding: 5%;
 }

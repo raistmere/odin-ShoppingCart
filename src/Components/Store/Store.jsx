@@ -1,6 +1,7 @@
-import React from "react"
-import styles from "./Store.module.css";
 import { useEffect, useState } from "react";
+import styles from "./Store.module.css";
+import Item from "../Item/Item.jsx";
+
 
 // This component handles the store front of the app where items will be rendered to the user to add to
 // the cart. There will be a view cart button that will route the user to the cart page.
@@ -20,7 +21,8 @@ const Store = () => {
         // Convert the fetchItems into [Item] components into a array of components to be rendered.
         const elementList = fetchItems.map((item) => {
             // This will be replaced by item components
-            return <div key={item.id}>{item.name}</div>
+            // return <div key={item.id}>{item.name}</div>
+            return <Item key={item.id} id={item.id} name={item.name} imgSrc={item.imgSrc} imgAlt={item.imgAlt}/>
         });
         // Save the current list of items
         setItems(elementList);

@@ -1,0 +1,66 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(182, 182, 182);
+}
+
+.itemName {
+    color: black;
+    width: 100%;
+    flex: 1;
+    text-align: center;
+    font-size: 100%;
+    background-color: rgb(168, 228, 186);
+}
+
+img {
+    width: 300px;
+    height: auto;
+}
+
+.addItemBox {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    background-color: rgb(168, 228, 186);
+}
+
+.qtyBox {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.qtyBox button {
+    width: 25%;
+    font-size: 100%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(99, 99, 99);
+}
+.qtyBox button:active {
+    background-color: rgb(131, 131, 131);
+}
+
+.qtyCount {
+    color: black;
+    font-size: 28px;
+}
+
+.addButton {
+    flex: 1;
+    font-size: 100%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(110, 110, 110);
+    background-color: white;
+}
+
+.addButton:active {
+    background-color: rgb(131, 131, 131);
+}

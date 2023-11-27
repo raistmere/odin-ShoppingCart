@@ -1,6 +1,28 @@
 {
     "items": [
-      { "id": 1, "name": "Apple"},
-      { "id": 2, "name": "Banana"}
+      { 
+        "id": 1, 
+        "name": "Apple", 
+        "imgSrc": "https://st2.depositphotos.com/1561359/12101/v/950/depositphotos_121012076-stock-illustration-blank-photo-icon.jpg", 
+        "imgAlt":"Apple image"
+      },
+      { 
+        "id": 2, 
+        "name": "Banana", 
+        "imgSrc": "https://st2.depositphotos.com/1561359/12101/v/950/depositphotos_121012076-stock-illustration-blank-photo-icon.jpg", 
+        "imgAlt":"Banana image"
+      },
+      { 
+        "id": 3, 
+        "name": "Orange", 
+        "imgSrc": "https://st2.depositphotos.com/1561359/12101/v/950/depositphotos_121012076-stock-illustration-blank-photo-icon.jpg", 
+        "imgAlt":"Banana image"
+      },
+      { 
+        "id": 4, 
+        "name": "Pear", 
+        "imgSrc": "https://st2.depositphotos.com/1561359/12101/v/950/depositphotos_121012076-stock-illustration-blank-photo-icon.jpg", 
+        "imgAlt":"Banana image"
+      }
     ]
 }

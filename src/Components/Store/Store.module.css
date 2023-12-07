@@ -29,7 +29,7 @@
     padding: 5%;
 }
 
-.cartBox {
+.viewCartBox {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -38,5 +38,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
     background: rgb(255, 190, 37);
+}
+
+.viewCartTitle, .viewCartCount {
+    font-size: large;
 }

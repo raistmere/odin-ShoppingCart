@@ -1,6 +1,8 @@
 import { expect, test, vi } from "vitest";
 import { act, render, screen } from "@testing-library/react";
 import Store from "./Store.jsx"
+import pubsub from "../../pubsub/pubsub.js";
+import { BrowserRouter, MemoryRouter } from "react-router-dom";
 
 const mockFetchItems = [
     {
@@ -25,7 +27,7 @@ const mockFetch = global.fetch = vi.fn(() => Promise.resolve({
 
 test("Check if store renders on screen", () => {
     // Arrange
-    render(<Store />);
+    render(<BrowserRouter><Store /></BrowserRouter> );
     let wrapper = screen.getByTestId("storeWrapper");
     // Act
     // Assert
@@ -35,13 +37,18 @@ test("Check if store renders on screen", () => {
 
 test("Check if items rendered", async () => {
     // Arrange
-    render(<Store />);
+    render(
+        <MemoryRouter>
+            <Store />
+        </MemoryRouter> 
+    );
     // Act
     // There needs to be a delay because of the fetch request and state change.
-    await new Promise((resolve) => setTimeout(() => {
-        resolve();
-    }, 100));
-    // Assert
+    await act(async () => {
+        await setTimeout(() => {
+            
+        }, 100);
+    });
     mockFetchItems.forEach((item) => {
         expect(screen.getByText(item.name));
     })
@@ -49,10 +56,30 @@ test("Check if items rendered", async () => {
 
 test("Check if view cart button rendered", () => {
     // Arrange
-    render(<Store />);
-    const cartButton = screen.getByRole("button", {name:"View Cart"});
+    render(
+        <MemoryRouter>
+            <Store />
+        </MemoryRouter> 
+    );
+    const viewCartTitle = screen.getByText("View Cart");
     // Act
     // Assert
-    expect(cartButton).not.toEqual(null);
+    expect(viewCartTitle).not.toEqual(null);
 });
+
+test("Check if view cart count get updated based on cartCount prop", async () => {
+    // Arrange
+    render(
+        <MemoryRouter>
+            <Store cartCount={5}/>
+        </MemoryRouter> 
+    );
+    const viewCartTitle = screen.getByTestId("viewCartCount");
+    // Act
+    // Assert
+    console.log("Title: ", viewCartTitle.textContent);
+    expect(viewCartTitle.textContent).toBe("5");
+});
+
+
 

@@ -77,7 +77,6 @@ test("Check if view cart count get updated based on cartCount prop", async () =>
     const viewCartTitle = screen.getByTestId("viewCartCount");
     // Act
     // Assert
-    console.log("Title: ", viewCartTitle.textContent);
     expect(viewCartTitle.textContent).toBe("5");
 });
 

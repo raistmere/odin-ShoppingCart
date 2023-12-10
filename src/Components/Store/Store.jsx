@@ -22,9 +22,8 @@ const Store = ({cartCount}) => {
         const fetchItems = await fetchData.json();
         // Convert the fetchItems into [Item] components into a array of components to be rendered.
         const elementList = fetchItems.map((item) => {
-            // This will be replaced by item components
-            // return <div key={item.id}>{item.name}</div>
-            return <Item key={item.id} id={item.id} name={item.name} imgSrc={item.imgSrc} imgAlt={item.imgAlt}/>
+            // Pass the item to create the new item card.
+            return <Item key={item.id} item={item} />;
         });
         // Save the current list of items
         setItems(elementList);

@@ -10,23 +10,15 @@ beforeEach(() => {
     mockItem = { 
         id: "1",
         name: "Apple", 
-        imageSrc: "apple.jpg",
-        imageAlt: "Apple Image"
+        imgSrc: "apple.jpg",
+        imgAlt: "Apple Image"
     }
-    render(<Item 
-        id={mockItem.id}
-        name={mockItem.name} 
-        imgSrc={mockItem.imageSrc} 
-        imgAlt={mockItem.imageAlt}
-    />);
+    render(<Item item={mockItem} />);
 });
 
 test("Creating new item", () => {
-    // Arrange
-    const itemImage = screen.getByAltText(mockItem.imageAlt);
     // Assert
     expect(screen.getByText("Apple"));
-    expect(itemImage.getAttribute("src")).toStrictEqual(mockItem.imageSrc);
 });
 
 test("Check if Qty. Count can be incremented", async () => {

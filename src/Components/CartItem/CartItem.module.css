@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.cartItemBox{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    /* padding: 10px; */
+    gap: 5px;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-bottom-color: rgb(0, 0, 0);
+    background-color: aqua;
+}
+
+.cartItemBox img {
+    width: 75px;
+    height: 75px;
+}
+
+.itemName {
+    /* background-color: rgb(200, 249, 249); */
+}
+
+.qtyBox {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* background-color: rgb(212, 212, 254); */
+}
+
+.qtyBox button {
+    width: 25px;
+    font-size: 15px;
+    padding: 2px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(99, 99, 99);
+}
+.qtyBox button:active {
+    background-color: rgb(131, 131, 131);
+}
+
+.totalBox {
+    flex: 1;
+    /* background-color: beige; */
+}

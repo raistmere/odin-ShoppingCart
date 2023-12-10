@@ -3,30 +3,32 @@ import styles from "./Item.module.css";
 import { useState } from "react";
 import pubsub from "../../pubsub/pubsub.js";
 
-const Item = ({id, name, imgSrc, imgAlt}) => {
-    const [qtyCount, setQtyCount] = useState(1);
+const Item = ({item}) => {
+    const [count, setCount] = useState(1);
+    const {id, name, imgSrc, imgAlt} = item;
 
     const incrementQtyCount = () => {
-        setQtyCount((prevCount) => prevCount + 1);
+        setCount((prevCount) => prevCount + 1);
     };
 
     const decrementQtyCount = () => {
-        if(qtyCount > 1)
+        if(count > 1)
         {
-            setQtyCount((prevCount) => prevCount - 1);
+            setCount((prevCount) => prevCount - 1);
         }
     };
 
     const resetQtyCount = () => {
-        if(qtyCount > 1)
+        if(count > 1)
         {
-            setQtyCount(1);
+            setCount(1);
         }
     };
 
     const addToCart = () => {
         // Publish pubsub addToCart
-        pubsub.publish("updateCartCount", {id, name, imgSrc, imgAlt, count: qtyCount});
+        item.count = count;
+        pubsub.publish("addItemToCart", item);
         // Reset item quantity right after adding to cart.
         resetQtyCount();
     }
@@ -38,7 +40,7 @@ const Item = ({id, name, imgSrc, imgAlt}) => {
             <div className={styles.addItemBox}>
                 <div className={styles.qtyBox}>
                     <button onClick={decrementQtyCount}>-</button>
-                    <h4 className={styles.qtyCount}>{qtyCount}</h4>
+                    <h4 className={styles.qtyCount}>{count}</h4>
                     <button onClick={incrementQtyCount}>+</button>
                 </div>
                 <button className={styles.addButton} onClick={addToCart}>Add to Cart</button>

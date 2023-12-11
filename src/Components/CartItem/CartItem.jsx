@@ -9,7 +9,7 @@ const CartItem = ({item}) => {
     
     // 
     const decrementCount = () => {
-        pubsub.publish("removeItemFromCart", item);
+        pubsub.publish("removeItemFromCart", {...item, count: item.count - 1});
     }
 
     // 

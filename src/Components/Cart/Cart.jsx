@@ -8,7 +8,7 @@ const Cart = ({cartCount, cartItems}) => {
 
     const itemCards = cartItems.map((item) => (
         // IndexOf is just temp placeholder key value. Need to be replaced with something else.
-        <CartItem item={item}/>
+        <CartItem key={item.id} item={item}/>
     ));
 
     return (

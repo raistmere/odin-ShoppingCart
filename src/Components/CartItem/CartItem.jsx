@@ -14,7 +14,8 @@ const CartItem = ({item}) => {
 
     // 
     const incrementCount = () => {
-
+        console.log(item.count + 1);
+        pubsub.publish("addItemToCart", {...item, count: 1});
     }
 
     return (
@@ -24,7 +25,7 @@ const CartItem = ({item}) => {
             <div className={styles.qtyBox}>
                 <button onClick={decrementCount}>-</button>
                 <p>{count}</p>
-                <button>+</button>
+                <button onClick={incrementCount}>+</button>
             </div>
             <div className={styles.totalBox}>
                 <p>${total}</p>

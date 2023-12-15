@@ -19,6 +19,10 @@ const Cart = ({cartCount, cartItems}) => {
                 {/* We want to go ahead and render all the item cards here if they exist */}
                 { cartItems.length > 0 ? itemCards : <p>Empty Cart</p> }
             </h2>
+            <h2 className={styles.totalBox}>
+                <p className="totalTitle">Total</p>
+                <p className="totalCount">$1,403,235</p>
+            </h2>
             <div className={styles.checkoutBox}>
                     <Link to="/">
                         <p className={styles.backText}>Back</p>

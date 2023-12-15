@@ -14,7 +14,6 @@ const CartItem = ({item}) => {
 
     // 
     const incrementCount = () => {
-        console.log(item.count + 1);
         pubsub.publish("addItemToCart", {...item, count: 1});
     }
 

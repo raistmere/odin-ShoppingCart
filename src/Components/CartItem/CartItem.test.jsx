@@ -15,17 +15,23 @@ beforeEach(() => {
         imgAlt: "Apple Image",
         count: 5
     }
+
     const mockRemoveItem = () => {
         mockItem.count -= 1;
     }
-    pubsub.subscribe("removeItemFromCart", mockRemoveItem);
 
+    const mockAddItem = () => {
+        mockItem.count += 1;
+    }
+
+    pubsub.subscribe("removeItemFromCart", mockRemoveItem);
+    pubsub.subscribe("addItemToCart", mockAddItem);
     
 });
 
 test("Decrement item count", async () => {
     // Arrange
-    const {rerender} = render(<CartItem item={mockItem}/>);
+    const { rerender } = render(<CartItem item={mockItem}/>);
     const user = userEvent.setup();
     const count = screen.getByText("5");
     const decrementButton = screen.getByRole("button", {name: "-"})
@@ -38,3 +44,20 @@ test("Decrement item count", async () => {
     expect(count.textContent).toBe("4");
     
 });
+
+// test("Increment item count", async () => {
+//     // Arrange
+//     const { rerender } = render(<CartItem item={mockItem}/>);
+//     const user = userEvent.setup();
+//     const count = screen.getByText("5");
+//     const incrementButton = screen.getByRole("button", {name: "+"})
+//     console.log(count);
+//     // Act
+//     await act(async () => {
+//         await user.click(incrementButton);
+//     });
+//     rerender(<CartItem item={mockItem}/>);
+//     // Assert
+//     expect(count.textContent).toBe("6");
+    
+// });

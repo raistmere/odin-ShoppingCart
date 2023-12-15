@@ -21,7 +21,7 @@
 
 .itemBox {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: repeat(auto-fit, 300px);
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -44,4 +44,14 @@
 
 .viewCartTitle, .viewCartCount {
     font-size: large;
+}
+
+@media all and (min-width: 678px) {
+
+    .viewCartBox {
+        position: absolute;
+        top: 0px;
+        left: 80%;
+        width: 20%;
+    }
 }

@@ -2,4 +2,4 @@
 # Using
 React + Vite + Vitest
 # Netlify
-[Link](TBA).
+[Link](raistmere-shoppingcart.netlify.app).

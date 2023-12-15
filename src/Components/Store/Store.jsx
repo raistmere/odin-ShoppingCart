@@ -17,8 +17,9 @@ const Store = ({cartCount}) => {
     
     // This create all the card items by converting api/json data to [Item] components.
     const createItemCards = async () => {
-        // Right now I am fetching from a db.json file but this would be replaced with a server api call.
-        const fetchData = await fetch("http://localhost:3000/items");
+        // Fetch from my-json-server for testing purposes and to used for netlify.
+        const fetchData = await fetch("https://my-json-server.typicode.com/raistmere/odin-ShoppingCart/items");
+        // const fetchData = await fetch("http://localhost:3000/items"); // Used for local testing only
         const fetchItems = await fetchData.json();
         // Convert the fetchItems into [Item] components into a array of components to be rendered.
         const elementList = fetchItems.map((item) => {
